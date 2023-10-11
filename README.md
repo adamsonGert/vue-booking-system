@@ -1,4 +1,4 @@
-# creative-list-vue
+# Simple booking system built with Vue 3 & Firebase for authentication and storing data.
 
 ## Project setup
 ```
