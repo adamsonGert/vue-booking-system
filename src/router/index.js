@@ -1,20 +1,27 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { auth } from '/firebaseConfig'; // adjust the path if necessary
+import { auth } from '/firebaseConfig';
 import Register from '@/views/Register.vue';
 import Login from '@/views/Login.vue';
+import ForgotPassword from '@/views/ForgotPassword.vue';
 import Dashboard from '@/views/Dashboard.vue';
 
 const routes = [
   {
     path: '/',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/register',
     name: 'Register',
     component: Register
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: Login
+    path: '/forgot-password',
+    name: 'Forgot password',
+    component: ForgotPassword
   },
+  
   {
     path: '/dashboard',
     name: 'Dashboard',
