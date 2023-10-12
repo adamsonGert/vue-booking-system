@@ -1,13 +1,13 @@
 <template>
-    <section class="container mx-auto px-4">
+    <section class="container mx-auto py-10 px-4">
         <div class="flex flex-col text-left items-center justify-center min-h-screen">
             <h1 class="text-5xl">Welcome <strong aria-live="polite">{{ userName }}</strong></h1>
             <div class="flex space-x-4 pt-8 pb-8">
                 <button @click="activeView = 'form'" class="font-semibold py-2 px-4 rounded" :class="{'bg-blue-600 text-white hover:bg-blue-800': activeView === 'form', 'bg-white text-gray-800 border-gray-400 hover:bg-gray-100': activeView !== 'form' }">Create Booking</button>
                 <button @click="activeView = 'bookings'" class="font-semibold py-2 px-4 rounded" :class="{'bg-blue-600 text-white hover:bg-blue-800': activeView === 'bookings', 'bg-white text-gray-800 border-gray-400 hover:bg-gray-100': activeView !== 'bookings' }">View Bookings</button>
             </div>
-            <BookingForm v-show="activeView === 'form'" />
-            <Bookings v-show="activeView === 'bookings'" />
+            <BookingForm v-if="activeView === 'form'" />
+            <Bookings v-if="activeView === 'bookings'" />
             <button @click="logout" class="mt-8 text-gray-400 hover:underline hover:text-gray-100 hover:cursor-pointer">
                 Log Out
             </button>

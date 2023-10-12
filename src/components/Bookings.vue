@@ -118,6 +118,7 @@ export default {
     onMounted(async () => {
       const querySnapshot = await getDocs(collection(db, `users/${userId}/bookings`));
       bookings.value = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      bookings.value.sort((a, b) => b.date.toMillis() - a.date.toMillis());
     });
 
     const formatDate = (timestamp) => {
@@ -139,6 +140,7 @@ export default {
       const querySnapshot = await getDocs(collection(db, `users/${userId}/bookings`));
       bookings.value = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     };
+
 
     const deleteBooking = async (bookingId) => {
       try {

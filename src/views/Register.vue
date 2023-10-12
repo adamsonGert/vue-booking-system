@@ -2,9 +2,6 @@
   <section class="min-h-screen flex items-stretch text-white ">
       <SignHero />
       <div class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0">
-        <div class="absolute lg:hidden z-10 inset-0 bg-gray-500 bg-no-repeat bg-cover items-center" :style="{ backgroundImage: `url(${heroImage})` }">
-            <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
-        </div>
         <div class="w-full py-6 z-20">
           <h1 class="text-5xl my-6 font-bold">Sign up</h1>
           <form @submit.prevent="register" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
@@ -40,7 +37,6 @@ import { ref } from 'vue';
 import { updateProfile, createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '/firebaseConfig';
 import SignHero from '../components/SignHero.vue';
-import heroImage from '../assets/hero-bg.webp';
 
 export default {
   name: 'RegisterForm',
@@ -75,8 +71,7 @@ export default {
       email,
       password,
       register,
-      errorMessage,
-      heroImage
+      errorMessage
     };
   },
   components: {
